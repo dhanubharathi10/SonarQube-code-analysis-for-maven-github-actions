@@ -30,4 +30,4 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze code
-        run: mvn clean sonar:sonar -Dsonar.host.url=http://10.119.100.106:9000 -Dsonar.login=admin -Dsonar.password=Dhanu@10 
+        run: mvn clean sonar:sonar -Dsonar.host.url=http://localhost:9000/ -Dsonar.login=admin -Dsonar.password=Dhanu@10 

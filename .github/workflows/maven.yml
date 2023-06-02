@@ -30,5 +30,4 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze code
-        
-        run: mvn sonar:sonar -Dsonar.login=squ_d364932bc58f88d8360f7cc282c2ffa671456f00
+        run: mvn clean install

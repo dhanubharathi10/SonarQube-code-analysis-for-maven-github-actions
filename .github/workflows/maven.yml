@@ -10,24 +10,10 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-      - name: Cache SonarQube packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Maven packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze code
-        run: mvn clean sonar:sonar -Dsonar.host.url=SONAR_HOST_URL -Dsonar.login=admin -Dsonar.password=Dhanu@10 
+    - name: Checking out
+      uses: actions/checkout@main
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: Build and analyze code
+      run: mvn clean sonar:sonar -Dsonar.host.url=SONAR_HOST_URL -Dsonar.login=admin -Dsonar.password=Dhanu@10 

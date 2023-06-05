@@ -15,5 +15,9 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
-    - name: Build and analyze code
-      run: mvn clean sonar:sonar -Dsonar.host.url=SONAR_HOST_URL -Dsonar.login=admin -Dsonar.password=Dhanu@10 
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: ${{ secrets.SONARQUBE_HOST }}
+        login: ${{ secrets.SONARQUBE_TOKEN }}
+        projectKey: Github-Action-Scan

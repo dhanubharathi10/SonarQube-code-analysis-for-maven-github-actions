@@ -16,4 +16,4 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarQube Scan
-      run: mvn sonar:sonar
+      run: mvn clean verify sonar:sonar -Dsonar.projectKey=Github-Action-Scan -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=sqp_54166eb1290c2a0635b27d82386dde574e723bac

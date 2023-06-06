@@ -15,7 +15,7 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
-    - name: SonarQube  Scan
+    - name: SonarQube Scan
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  #  Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
